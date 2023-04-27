@@ -1,0 +1,25 @@
+.navbar-bg {
+    background-color: #F1F3FF;
+}
+
+.btn-navbar {
+    background-color: #5CB85F;
+    height: 36px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    border-color: #F1F3FF;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.btn-navbar:hover {
+    background-color: #5CB85F;
+    color: #ffff;
+    text-decoration: none;
+    border-color: #5CB85F;
+    cursor: pointer;
+}

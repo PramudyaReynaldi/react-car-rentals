@@ -1,0 +1,57 @@
+* {
+    font-family: Helvetica;
+}
+
+.banner {
+    padding-top: 6rem;
+    background-color:  #F1F3FF;
+    height: 100%;
+}
+
+.banner-text {
+    font-weight: 700;
+    line-height: 54px;
+    font-size: 34px;
+}
+
+.intro-text {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.btn-car {
+    background-color: #5CB85F;
+    height: 36px;
+    font-size: 14px;
+    font-weight: 700;
+    border-color: #5CB85F;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.btn-car:hover {
+    background-color: #5CB85F;
+    color: #ffff;
+    text-decoration: none;
+    border-color: #5CB85F;
+    cursor: pointer;
+}
+
+
+
+@media screen and (min-width: 992px){
+    .img-car {
+        margin-left: 50px;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 991px){
+    .img-car {
+        margin-top: 25px;
+    }
+}
