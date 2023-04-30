@@ -1,4 +1,4 @@
-import { Header, Footer, Home, OurService, WhyUs } from './components'
+import { Header, Footer, Home, OurService, WhyUs, Testimonial } from './components'
 import { Routes, Route, NavLink } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -10,6 +10,7 @@ function App() {
           <Home />
           <OurService />
           <WhyUs />
+          <Testimonial />
         <Footer />
       </div>
     </>

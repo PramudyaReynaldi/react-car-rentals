@@ -17,10 +17,15 @@ export default function Header() {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="ms-auto fw-bold">
+                        <Nav className="ms-auto" style={{
+                            fontSize: '14px',
+                            fontWeight: '400',
+                            color: '#000000'
+                        }}
+                        >
                             <Nav.Link href="#OurService">Our Services</Nav.Link>
-                            <Nav.Link href="#why-us">Why Us</Nav.Link>
-                            <Nav.Link href="#testimonial">Testimonial</Nav.Link>
+                            <Nav.Link href="#WhyUs">Why Us</Nav.Link>
+                            <Nav.Link href="#Testimonial">Testimonial</Nav.Link>
                             <Nav.Link href="#faq">FAQ</Nav.Link>
                         <Button className="ms-3 btn-navbar">Register</Button>{' '}
                         </Nav>
