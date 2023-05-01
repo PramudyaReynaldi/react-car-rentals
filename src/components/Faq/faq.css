@@ -1,0 +1,11 @@
+#Faq {
+    padding-top: 7rem;
+}
+
+.accordion-item {
+    margin: 20px 0;
+}
+
+.accordion-button {
+    font-size: 14px;
+}
