@@ -8,7 +8,7 @@
 
 .rectangle {
     background-color: #0D28A6;
-    height: 326px;
+    height: 300px;
     border-radius: 13px;
     -webkit-border-radius: 13px;
     -moz-border-radius: 13px;
@@ -28,4 +28,10 @@
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
     -o-border-radius: 2px;
+}
+
+@media screen and (max-width: 465px) {
+    .rectangle {
+        height: 100%;
+    }
 }
