@@ -1,0 +1,31 @@
+* {
+    font-family: helvetica;
+}
+
+#Rectangle {
+    padding-top: 8rem;
+}
+
+.rectangle {
+    background-color: #0D28A6;
+    height: 326px;
+    border-radius: 13px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    -ms-border-radius: 13px;
+    -o-border-radius: 13px;
+}
+
+.rectangle-btn {
+    background-color: #5CB85F;
+    height: 36px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    border-color: #5CB85F;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
