@@ -1,18 +1,19 @@
-import { React, useState } from "react";
-import { Header, Footer, Home } from "../../components";
-import { Link, useLocation } from "react-router-dom";
-import './cars.css'
+import React, { useState } from "react";
+import { Footer, Header, Home } from "../../components";
+import { useLocation } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './carimobil.css'
 
-export default function Cars() {
+
+export default function CariMobil() {
     return (
         <>
             <Header />
-            <Home />
-            <section id="cari">
+            <div className="banner">
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-11 col-md-12 info-panel">
-                            <div class="shadow p-3 rounded  ">
+                        <div class="col-11 col-md-12 filter-search">
+                            <div class="shadow p-3 rounded ">
                                 <div
                                     class="row row-cols-lg-auto g-0 justify-content-around"
                                 >
@@ -70,20 +71,19 @@ export default function Cars() {
                                             placeholder="Jumlah Penumpang"
                                         />
                                     </div>
-                                    <Link to="/cari-mobil">
-                                        <button
-                                            id="filter"
-                                            class="btn btn-success btn-cari-mobil"
-                                        >
-                                            Cari Mobil
-                                        </button>
-                                    </Link>
+
+                                    <button
+                                        id="filter"
+                                        class="btn btn-success btn-cari-mobil"
+                                    >
+                                        Cari Mobil
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div >
             <Footer />
         </>
     )

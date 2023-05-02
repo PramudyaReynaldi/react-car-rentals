@@ -1,0 +1,82 @@
+.filter-search .shadow {
+   margin-top: 100px;
+   background-color: #ffffff;
+   position: relative;
+}
+label {
+   font-size: 14px;
+   color: #aeacac;
+}
+#tipedriver,
+#penumpang {
+   font-size: 14px;
+   height: 32px;
+   color: #aeacac;
+}
+input[type="date"] {
+   border: 1px solid #ccc;
+   border-radius: 0.375rem;
+   padding: 5px;
+   font-size: 14px;
+   font-weight: 100;
+   color: #aeacac;
+   width: 210px;
+   height: 32px;
+   -webkit-border-radius: 0.375rem;
+   -moz-border-radius: 0.375rem;
+   -ms-border-radius: 0.375rem;
+   -o-border-radius: 0.375rem;
+}
+input[type="time"] {
+   border: 1px solid #ccc;
+   border-radius: 0.375rem;
+   padding: 5px;
+   font-size: 14px;
+   font-weight: 100;
+   color: #aeacac;
+   width: 210px;
+   height: 32px;
+   -webkit-border-radius: 0.375rem;
+   -moz-border-radius: 0.375rem;
+   -ms-border-radius: 0.375rem;
+   -o-border-radius: 0.375rem;
+}
+
+@media screen and (max-width: 991px) {
+   input[type="date"] {
+      width: 100%;
+   }
+   input[type="time"] {
+      width: 100%;
+   }
+}
+
+.form-control {
+   border: 1px solid #ccc;
+   border-radius: 0.375rem;
+   padding: 5px;
+   font-size: 14px;
+   font-weight: 100;
+   color: #aeacac;
+   width: 200px;
+   height: 32px;
+   -webkit-border-radius: 0.375rem;
+   -moz-border-radius: 0.375rem;
+   -ms-border-radius: 0.375rem;
+   -o-border-radius: 0.375rem;
+}
+#filter {
+   font-size: 14px;
+   width: 92px;
+   height: 36px;
+   background-color: #5cb85f;
+   color: #ffffff;
+   border: none;
+   margin-top: 27px;
+}
+
+@media screen and (max-width: 991px) {
+   #filter {
+      width: 100%;
+   }
+}
