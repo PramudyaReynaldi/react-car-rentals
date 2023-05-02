@@ -27,7 +27,7 @@ export default function Header() {
                             <Nav.Link href="#WhyUs">Why Us</Nav.Link>
                             <Nav.Link href="#Testimonial">Testimonial</Nav.Link>
                             <Nav.Link href="#Faq">FAQ</Nav.Link>
-                        <Button className="ms-3 btn-navbar">Register</Button>{' '}
+                            <Button className="ms-3 btn-navbar">Register</Button>{' '}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

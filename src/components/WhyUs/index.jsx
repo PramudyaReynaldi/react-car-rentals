@@ -19,7 +19,7 @@ export default function WhyUs() {
                     <p className="whyus-text pt-2">Mengapa harus pilih Binar Car Rental?</p>
                     <Row className="pt-4">
                         <Col xs={12} lg={3}>
-                            <Card>
+                            <Card className="why-us-card">
                                 <Image src={ImgComplete} fluid style={{
                                     width: '32px',
                                     height: '32px',
@@ -44,7 +44,7 @@ export default function WhyUs() {
                             </Card>
                         </Col>
                         <Col xs={12} lg={3}>
-                            <Card>
+                            <Card className="why-us-card">
                                 <Image src={ImgPrice} fluid style={{
                                     width: '32px',
                                     height: '32px',
@@ -69,7 +69,7 @@ export default function WhyUs() {
                             </Card>
                         </Col>
                         <Col xs={12} lg={3}>
-                            <Card>
+                            <Card className="why-us-card">
                                 <Image src={ImgTime} fluid style={{
                                     width: '32px',
                                     height: '32px',
@@ -94,8 +94,8 @@ export default function WhyUs() {
                             </Card>
                         </Col>
                         <Col xs={12} lg={3}>
-                            <Card>
-                                <Image src={ImgPro} fluid style={{
+                            <Card className="why-us-card" >
+                                <Image src={ImgPro} fluida style={{
                                     width: '32px',
                                     height: '32px',
                                     margin: '15px 10px 0 20px'

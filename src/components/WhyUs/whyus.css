@@ -5,3 +5,9 @@
 .whyus-text {
     font-size: 14px;
 }
+
+@media screen and (max-width: 991px) {
+    .why-us-card {
+        margin: 8px 0;
+    }
+}

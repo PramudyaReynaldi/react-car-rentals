@@ -34,4 +34,7 @@
     .rectangle {
         height: 100%;
     }
+    .rectangle-btn {
+        margin-bottom: 25px;
+    }
 }
