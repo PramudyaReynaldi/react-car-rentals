@@ -1,13 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState, useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Footer, Header, Home } from "../../components";
-import { useLocation } from "react-router-dom";
+import { Card, Row, Col, Container } from "react-bootstrap";
+import {
+    fetchCars,
+    selectCars,
+    selectCarsLoading
+} from './CarsSlice'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './carimobil.css'
 
 
 export default function CariMobil() {
+    const firstLoad = useRef(true);
+    const cars = useSelector(selectCars)
+    const carsLoading = useSelector(selectCarsLoading)
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (firstLoad.current) dispatch(fetchCars())
+
+        return () => {
+            firstLoad.current = false
+        }
+    }, [])
+
     return (
         <>
+            {carsLoading === 'loading' && <div>Loading...</div>}
             <Header />
             <div className="banner">
                 <div class="container">
@@ -82,6 +104,32 @@ export default function CariMobil() {
                             </div>
                         </div>
                     </div>
+                    <Container className="mt-5">
+                        <Row lg={3}>
+                            {cars ? cars.map((e, i) => (
+                                <Card>
+                                    <Card.Img
+                                        variant="top"
+                                        src={
+                                            "https://raw.githubusercontent.com/fnurhidayat/probable-garbanzo/main/public/" +
+                                            e.image.substring(1)
+                                        }
+                                        height={200}
+                                    />
+                                    <Card.Body>
+                                        <Card.Title>{e.manufacture}</Card.Title>
+                                        <Card.Text>
+                                            <div>Sewa Per Hari : {e.rentPerDay}</div>
+                                            <div>Nomor Plate : {e.plate}</div>
+                                            <div>Kapasitas : {e.capacity}</div>
+                                            <div>Deskripsi : {e.description}</div>
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            ))
+                                : <Col xs={12}>No data</Col>}
+                        </Row>
+                    </Container>
                 </div>
             </div >
             <Footer />
