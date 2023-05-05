@@ -5,3 +5,10 @@ export async function fetchCarsApi () {
 
     return cars
 }
+
+export async function filterCarsApi (filter) {
+    const cars = await fetch ('https://raw.githubusercontent.com/fnurhidayat/probable-garbanzo/main/data/cars.min.json/?' + filter)
+    const res = cars.json()
+
+    return res
+}

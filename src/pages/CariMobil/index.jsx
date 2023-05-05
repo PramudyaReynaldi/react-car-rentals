@@ -1,13 +1,17 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Footer, Header, Home } from "../../components";
-import { Card, Row, Col, Container } from "react-bootstrap";
+import { Footer, Header } from "../../components";
+import { Card, Row, Col, Container, Button } from "react-bootstrap";
 import {
     fetchCars,
     selectCars,
-    selectCarsLoading
+    selectCarsLoading,
+    filterCars
 } from './CarsSlice'
+import LogoUsers from '../../assets/fi_users.png'
+import LogoSettings from '../../assets/fi_settings.png'
+import LogoCalendar from '../../assets/fi_calendar.png'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './carimobil.css'
 
@@ -16,6 +20,9 @@ export default function CariMobil() {
     const firstLoad = useRef(true);
     const cars = useSelector(selectCars)
     const carsLoading = useSelector(selectCarsLoading)
+    const [filter, setFilter] = useState({
+        availableAt: ''
+    })
 
     const dispatch = useDispatch()
 
@@ -26,6 +33,23 @@ export default function CariMobil() {
             firstLoad.current = false
         }
     }, [])
+
+    const handleChange = (e) => {
+        setFilter({
+            ...filter,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleFilter = (e) => {
+        e.preventDefault()
+
+        dispatch(filterCars(filter))
+    }
+
+    useEffect(() => {
+        console.log(cars)
+    }, [cars])
 
     return (
         <>
@@ -59,15 +83,19 @@ export default function CariMobil() {
                                     </div>
 
                                     <div class="col-12 col-lg">
-                                        <label for="exampleDataList" class="form-label"
-                                        >Tanggal</label
-                                        >
-                                        <input
-                                            id="tersedia"
-                                            placeholder="Select date"
-                                            type="date"
-                                            class="form-control"
-                                        />
+                                        <from onSubmit={(e) => handleFilter(e)}>
+                                            <label for="exampleDataList" class="form-label"
+                                            >Tanggal</label
+                                            >
+                                            <input
+                                                id="tersedia"
+                                                placeholder="Select date"
+                                                type="date"
+                                                class="form-control"
+                                                name="availableAt"
+                                                onChange={(e) => handleChange(e)}
+                                            />
+                                        </from>
                                     </div>
 
                                     <div class="col-12 col-lg">
@@ -97,6 +125,7 @@ export default function CariMobil() {
                                     <button
                                         id="filter"
                                         class="btn btn-success btn-cari-mobil"
+                                        type="submit"
                                     >
                                         Cari Mobil
                                     </button>
@@ -104,34 +133,37 @@ export default function CariMobil() {
                             </div>
                         </div>
                     </div>
-                    <Container className="mt-5">
-                        <Row lg={3}>
-                            {cars ? cars.map((e, i) => (
-                                <Card>
-                                    <Card.Img
-                                        variant="top"
-                                        src={
-                                            "https://raw.githubusercontent.com/fnurhidayat/probable-garbanzo/main/public/" +
-                                            e.image.substring(1)
-                                        }
-                                        height={200}
-                                    />
-                                    <Card.Body>
-                                        <Card.Title>{e.manufacture}</Card.Title>
-                                        <Card.Text>
-                                            <div>Sewa Per Hari : {e.rentPerDay}</div>
-                                            <div>Nomor Plate : {e.plate}</div>
-                                            <div>Kapasitas : {e.capacity}</div>
-                                            <div>Deskripsi : {e.description}</div>
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            ))
-                                : <Col xs={12}>No data</Col>}
-                        </Row>
-                    </Container>
                 </div>
             </div >
+            <Container className="mt-5">
+                <Row lg={3} xs={12}>
+                    {cars ? cars.map((e, i) => (
+                        <Card>
+                            <Card.Img
+                                variant="top"
+                                src={
+                                    "https://raw.githubusercontent.com/fnurhidayat/probable-garbanzo/main/public/" +
+                                    e.image.substring(1)
+                                }
+                                height={'270px'}
+                                width={'100%'}
+                            />
+                            <Card.Body>
+                                <Card.Title className="fw-bold">{e.manufacture}</Card.Title>
+                                <Card.Text>
+                                    <div className="fw-bold">Rp {e.rentPerDay} / hari</div>
+                                    <div style={{ fontSize: '14px' }}>{e.description}</div> <br />
+                                    <div style={{ fontSize: '14px' }}><img src={LogoUsers} /> &nbsp;{e.capacity} orang</div> <br />
+                                    <div style={{ fontSize: '14px' }}><img src={LogoSettings} /> &nbsp;{e.transmission}</div> <br />
+                                    <div style={{ fontSize: '14px' }}><img src={LogoCalendar} /> &nbsp;Tahun {e.year}</div> <br />
+                                    <Button variant="primary">Go somewhere</Button>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    ))
+                        : <Col xs={12} lg={4}>No data</Col>}
+                </Row>
+            </Container>
             <Footer />
         </>
     )
