@@ -136,9 +136,9 @@ export default function CariMobil() {
                 </div>
             </div >
             <Container className="mt-5">
-                <Row lg={3} xs={12}>
+                <Row lg={3} xs={12} className='m-3' style={{gap: '20px'}}>
                     {cars ? cars.map((e, i) => (
-                        <Card>
+                        <Card style={{width: '333px'}}>
                             <Card.Img
                                 variant="top"
                                 src={
