@@ -21,7 +21,9 @@ export default function CariMobil() {
     const cars = useSelector(selectCars)
     const carsLoading = useSelector(selectCarsLoading)
     const [filter, setFilter] = useState({
-        availableAt: ''
+        availableAt: '',
+        capacity: 0,
+        typeDriver: ''
     })
 
     const dispatch = useDispatch()
@@ -58,87 +60,85 @@ export default function CariMobil() {
             <div className="banner">
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-11 col-md-12 filter-search">
-                            <div class="shadow p-3 rounded ">
-                                <div
-                                    class="row row-cols-lg-auto g-0 justify-content-around"
-                                >
-                                    <div class="col-12 col-lg-2">
-                                        <label for="exampleDataList" class="form-label"
-                                        >Tipe Driver</label
-                                        >
-                                        <select
-                                            id="tipedriver"
-                                            class="form-select"
-                                            aria-label="Default select example"
-                                        >
-                                            <option value="0" selected>
-                                                Pilih Tipe Driver
-                                            </option>
-                                            <option value="Dengan Supir">Dengan Sopir</option>
-                                            <option value="Lepas Kunci">
-                                                Tanpa Sopir (Lepas Kunci)
-                                            </option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-12 col-lg">
-                                        <from onSubmit={(e) => handleFilter(e)}>
-                                            <label for="exampleDataList" class="form-label"
-                                            >Tanggal</label
-                                            >
-                                            <input
-                                                id="tersedia"
-                                                placeholder="Select date"
-                                                type="date"
-                                                class="form-control"
-                                                name="availableAt"
-                                                onChange={(e) => handleChange(e)}
-                                            />
-                                        </from>
-                                    </div>
-
-                                    <div class="col-12 col-lg">
-                                        <label for="exampleDataList" class="form-label"
-                                        >Waktu</label
-                                        >
-                                        <input
-                                            id="waktu"
-                                            placeholder="Select date"
-                                            type="time"
-                                            class="form-control"
-                                        />
-                                    </div>
-
-                                    <div class="col-12 col-lg">
-                                        <label for="exampleDataList" class="form-label">
-                                            Jumlah Penumpang (Optional)
-                                        </label>
-                                        <input
-                                            id="jumlah-penumpang"
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Jumlah Penumpang"
-                                        />
-                                    </div>
-
-                                    <button
-                                        id="filter"
-                                        class="btn btn-success btn-cari-mobil"
-                                        type="submit"
+                        <form onSubmit={(e) => handleFilter(e)} className="shadow p-3 rounded">
+                            <div class="row row-cols-lg-auto g-0 justify-content-around">
+                                <div class="col-12 col-lg-2">
+                                    <label for="exampleDataList" class="form-label"
+                                    >Tipe Driver</label
                                     >
-                                        Cari Mobil
-                                    </button>
+                                    <select
+                                        id="tipedriver"
+                                        class="form-select"
+                                        aria-label="Default select example"
+                                        name="typedriver"
+                                        onChange={(e) => handleChange(e)}
+                                    >
+                                        <option value="0" selected>
+                                            Pilih Tipe Driver
+                                        </option>
+                                        <option value="Dengan Supir">Dengan Sopir</option>
+                                        <option value="Lepas Kunci">
+                                            Tanpa Sopir (Lepas Kunci)
+                                        </option>
+                                    </select>
                                 </div>
+
+                                <div class="col-12 col-lg">
+                                    <label for="exampleDataList" class="form-label"
+                                    >Tanggal</label
+                                    >
+                                    <input
+                                        id="tersedia"
+                                        placeholder="Select date"
+                                        type="date"
+                                        class="form-control"
+                                        name="availableAt"
+                                        onChange={(e) => handleChange(e)}
+                                    />
+                                </div>
+
+                                <div class="col-12 col-lg">
+                                    <label for="exampleDataList" class="form-label"
+                                    >Waktu</label
+                                    >
+                                    <input
+                                        id="waktu"
+                                        placeholder="Select date"
+                                        type="time"
+                                        class="form-control"
+                                    />
+                                </div>
+
+                                <div class="col-12 col-lg">
+                                    <label for="exampleDataList" class="form-label">
+                                        Jumlah Penumpang (Optional)
+                                    </label>
+                                    <input
+                                        id="jumlah-penumpang"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Jumlah Penumpang"
+                                        name="capacity"
+                                        onChange={(e) => handleChange(e)}
+                                    />
+                                </div>
+
+                                <button
+                                    id="filter"
+                                    class="btn btn-success btn-cari-mobil"
+                                    type="submit"
+                                >
+                                    Cari Mobil
+                                </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
-                </div>
+                </div >
             </div >
             <Container className="mt-5">
-                <Row lg={3} xs={12} className='m-3' style={{gap: '20px'}}>
+                <Row lg={3} xs={12} className='m-3' style={{ gap: '20px' }}>
                     {cars ? cars.map((e, i) => (
-                        <Card style={{width: '333px'}}>
+                        <Card style={{ width: '333px' }}>
                             <Card.Img
                                 variant="top"
                                 src={
